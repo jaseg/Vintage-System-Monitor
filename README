@@ -1,0 +1,4 @@
+Currently, only the scale is complete. I am working on the software stuff. The
+hardware is a pretty straightforward ATMega8 with some low-pass filters on its
+two 16-bit-PWM-outputs and the usual software-USB-stuff (resistors, connector,
+12MHz crystal).
