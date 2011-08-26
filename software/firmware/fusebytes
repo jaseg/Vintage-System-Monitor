@@ -1,0 +1,1 @@
+avrdude -U lfuse:w:0xff:m -U hfuse:w:0xd9:m -p m8 -c buspirate -P /dev/ttyUSB0
