@@ -36,12 +36,12 @@ int main(int argc, char** argv)
 		help(argv);
 		return 3;
 	}
-	if(sscanf(argv[1], "%hd", &output) || sscanf(argv[2], "%f", &percentage)){
+	if(!(sscanf(argv[1], "%hd", &output) && sscanf(argv[2], "%f", &percentage))){
 		printf("Wrong number format.\n");
 		help(argv);
 		return 4;
 	}
-	printf("Setting output %d to %f%%\n", output, percentage);
+	printf("Setting output %hd to %.2f%% (0x%04hx)\n", output, percentage, (short)(65535*percentage/100.0F));
 	usb_init();
 	if((ec = usbOpenDevice(&mon, 0x16c0, "s@jaseg.de", 0x05dc, "MultiMon", "*", 0, stdout))){ //Ugh. Double reference.
 		printf("Cannot open device handle (error code %d).\n", ec);
